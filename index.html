@@ -246,16 +246,22 @@ body{background:var(--black);color:var(--white);font-family:'Syne',sans-serif;cu
 
 /* ── MARQUEE ── */
 .mq{overflow:hidden;border-top:1px solid rgba(201,169,110,.08);border-bottom:1px solid rgba(201,169,110,.08);padding:14px 0;}
-.mqt{display:flex;animation:mqa 20s linear infinite;white-space:nowrap;}
+.mqt{
+  display:flex;white-space:nowrap;
+  width:max-content;
+  animation:mqa 28s linear infinite;
+  will-change:transform;
+}
 .mqt.rev{animation-direction:reverse;opacity:.32;}
-.mqi{font-family:'Bebas Neue',sans-serif;font-size:.95rem;letter-spacing:.2em;color:var(--gold3);padding:0 34px;flex-shrink:0;}
+.mqi{font-family:'Bebas Neue',sans-serif;font-size:.95rem;letter-spacing:.2em;color:var(--gold3);padding:0 34px;flex-shrink:0;user-select:none;}
 .mqi b{color:var(--gold);}
+/* seamless: animates exactly one full set width */
 @keyframes mqa{from{transform:translateX(0);}to{transform:translateX(-50%);}}
 
 /* ══════════════════════════════
    PORTFOLIO (right after hero)
 ══════════════════════════════ */
-#portfolio{padding:130px 60px;display:grid;grid-template-columns:1fr 1.1fr;gap:80px;align-items:start;}
+#portfolio{padding:130px 60px;display:grid;grid-template-columns:1fr 1.1fr;gap:80px;align-items:center;}
 
 .port-l{}
 .port-ey{font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.28em;color:var(--gold);margin-bottom:16px;text-transform:uppercase;}
@@ -1266,11 +1272,23 @@ function initWave(id,color,off){
 initWave('waveform-canvas','rgba(80,200,130,.8)',0);
 initWave('waveform2-canvas','rgba(80,160,200,.6)',2.1);
 
-/* ── CURSOR ── */
+/* ── CURSOR (smooth delta-time lerp) ── */
 const cd=document.getElementById('cd'),ct=document.getElementById('ct');
-let mx=0,my=0,tx=0,ty=0;
-document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cd.style.left=mx+'px';cd.style.top=my+'px';});
-(function loop(){tx+=(mx-tx)*.1;ty+=(my-ty)*.1;ct.style.left=tx+'px';ct.style.top=ty+'px';requestAnimationFrame(loop);})();
+let mx=0,my=0,tx=0,ty=0,lastT=0;
+document.addEventListener('mousemove',e=>{
+  mx=e.clientX;my=e.clientY;
+  // dot follows instantly
+  cd.style.left=mx+'px';cd.style.top=my+'px';
+});
+(function loop(ts){
+  const dt=Math.min((ts-lastT)/16,3); // cap at 3 frames
+  lastT=ts;
+  const ease=1-Math.pow(0.08,dt); // frame-rate independent lerp ~8% per frame
+  tx+=( mx-tx)*ease*1.4;
+  ty+=(my-ty)*ease*1.4;
+  ct.style.left=tx+'px';ct.style.top=ty+'px';
+  requestAnimationFrame(loop);
+})(0);
 document.querySelectorAll('a,button,.svc,.pc,.clt,.pvid,.val').forEach(el=>{
   el.addEventListener('mouseenter',()=>document.body.classList.add('cx'));
   el.addEventListener('mouseleave',()=>document.body.classList.remove('cx'));
