@@ -547,6 +547,52 @@ footer{border-top:1px solid rgba(201,169,110,.07);padding:28px 56px;display:flex
 }
 
 /* ── MOBILE HERO BG (replaces monitor) ── */
+/* mobile monitor preview */
+.mob-monitor{display:none;position:relative;margin:0 24px 40px;}
+.mob-mon-frame{
+  border:1px solid rgba(201,169,110,.25);background:#070504;
+  border-radius:3px;overflow:hidden;
+  box-shadow:0 20px 60px rgba(0,0,0,.8),0 0 40px rgba(201,169,110,.04);
+}
+.mob-mon-bar{height:22px;background:rgba(201,169,110,.06);border-bottom:1px solid rgba(201,169,110,.1);display:flex;align-items:center;padding:0 10px;gap:5px;}
+.mob-mon-d{width:6px;height:6px;border-radius:50%;}
+.mob-mon-d.r{background:#ff5f57;}.mob-mon-d.y{background:#febc2e;}.mob-mon-d.g{background:#28c840;}
+.mob-mon-title{font-family:'DM Mono',monospace;font-size:.38rem;letter-spacing:.15em;color:rgba(201,169,110,.3);margin:0 auto;}
+.mob-mon-screen{
+  height:160px;position:relative;overflow:hidden;
+  background:linear-gradient(160deg,#0e0b06,#080604);
+  display:flex;align-items:center;justify-content:center;
+}
+.mob-mon-glow{position:absolute;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(201,169,110,.1),transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);animation:glowPulse 3s ease-in-out infinite;}
+.mob-mon-tc{position:absolute;bottom:6px;left:8px;font-family:'DM Mono',monospace;font-size:.36rem;letter-spacing:.1em;color:rgba(201,169,110,.4);}
+.mob-mon-rec{position:absolute;top:8px;right:8px;font-family:'DM Mono',monospace;font-size:.36rem;letter-spacing:.1em;color:rgba(201,169,110,.5);}
+/* CSS-only stick figure on mobile */
+.mob-fig{position:relative;width:50px;height:80px;z-index:2;animation:mobFigWalk 2s ease-in-out infinite alternate;}
+@keyframes mobFigWalk{0%{transform:translateX(-30px);}100%{transform:translateX(30px);}}
+.mob-fig-head{width:18px;height:18px;border-radius:50%;border:1.5px solid rgba(201,169,110,.85);margin:0 auto;}
+.mob-fig-body{width:1.5px;height:22px;background:rgba(201,169,110,.85);margin:0 auto;}
+.mob-fig-arms{position:relative;width:36px;height:1.5px;background:rgba(201,169,110,.85);margin:-14px auto 0;animation:mobArms 0.5s ease-in-out infinite alternate;}
+@keyframes mobArms{0%{transform:rotate(-15deg);}100%{transform:rotate(15deg);}}
+.mob-fig-legs{display:flex;justify-content:center;gap:8px;margin-top:2px;}
+.mob-fig-leg{width:1.5px;height:20px;background:rgba(201,169,110,.85);transform-origin:top center;}
+.mob-fig-leg:first-child{animation:legL .5s ease-in-out infinite alternate;}
+.mob-fig-leg:last-child{animation:legR .5s ease-in-out infinite alternate;}
+@keyframes legL{0%{transform:rotate(-20deg);}100%{transform:rotate(10deg);}}
+@keyframes legR{0%{transform:rotate(10deg);}100%{transform:rotate(-20deg);}}
+/* timeline */
+.mob-mon-tl{padding:8px 10px;background:#060402;border-top:1px solid rgba(201,169,110,.08);}
+.mob-tl-hdr{display:flex;justify-content:space-between;font-family:'DM Mono',monospace;font-size:.34rem;letter-spacing:.12em;color:rgba(201,169,110,.28);margin-bottom:5px;}
+.mob-tl-row{display:flex;align-items:center;gap:5px;margin-bottom:4px;}
+.mob-tl-lbl{font-family:'DM Mono',monospace;font-size:.32rem;color:rgba(201,169,110,.3);width:10px;flex-shrink:0;}
+.mob-tl-track{flex:1;height:8px;background:rgba(201,169,110,.04);border-radius:2px;position:relative;overflow:hidden;}
+.mob-tl-clip{position:absolute;top:0;height:100%;border-radius:2px;}
+.mob-tl-clip.v1{left:0;width:35%;background:linear-gradient(90deg,#6b4f22,#c9a96e);}
+.mob-tl-clip.v2{left:37%;width:30%;background:linear-gradient(90deg,#3a2a0e,#6b4f22);}
+.mob-tl-clip.v3{left:69%;width:28%;background:linear-gradient(90deg,#6b4f22,#c9a96e);}
+.mob-tl-clip.a1{left:4%;width:55%;background:linear-gradient(90deg,#1a4a28,#2a8a50);opacity:.8;}
+.mob-tl-ph{position:absolute;top:0;width:1px;height:100%;background:var(--gold2);animation:mobPH 4s linear infinite;}
+@keyframes mobPH{from{left:0%;}to{left:100%;}}
+.mob-monitor-tag{position:absolute;top:-10px;right:16px;background:var(--black);border:1px solid rgba(201,169,110,.22);padding:5px 10px;font-family:'DM Mono',monospace;font-size:.38rem;letter-spacing:.15em;color:var(--gold);}
 .mob-hero-bg{display:none;}
 @media(max-width:1024px){
   .mob-hero-bg{
@@ -562,6 +608,7 @@ footer{border-top:1px solid rgba(201,169,110,.07);padding:28px 56px;display:flex
     color:rgba(201,169,110,.04);line-height:1;letter-spacing:-.02em;
     pointer-events:none;
   }
+  .mob-monitor{display:block;}
   /* services — vertical on tablet too */
   .svc-scroll{flex-direction:column;overflow-x:visible;}
   .svc{min-width:unset;width:100%;}
@@ -690,6 +737,51 @@ footer{border-top:1px solid rgba(201,169,110,.07);padding:28px 56px;display:flex
 <!-- ══ HERO ══ -->
 <section id="hero">
   <div class="mob-hero-bg"></div>
+
+  <!-- MOBILE MONITOR (shown only on mobile) -->
+  <div class="mob-monitor" id="mob-monitor">
+    <div class="mob-monitor-tag">⬤ RENDERING</div>
+    <div class="mob-mon-frame">
+      <div class="mob-mon-bar">
+        <div class="mob-mon-d r"></div><div class="mob-mon-d y"></div><div class="mob-mon-d g"></div>
+        <div class="mob-mon-title">FINECUTZ — PROJECT_ALPHA.PRPROJ</div>
+      </div>
+      <div class="mob-mon-screen">
+        <div class="mob-mon-glow"></div>
+        <div class="mob-fig">
+          <div class="mob-fig-head"></div>
+          <div class="mob-fig-body"></div>
+          <div class="mob-fig-arms"></div>
+          <div class="mob-fig-legs">
+            <div class="mob-fig-leg"></div>
+            <div class="mob-fig-leg"></div>
+          </div>
+        </div>
+        <div class="mob-mon-rec">REC ●</div>
+        <div class="mob-mon-tc" id="mob-tc">00:00:00:00</div>
+      </div>
+      <div class="mob-mon-tl">
+        <div class="mob-tl-hdr"><span>00:00</span><span>TIMELINE</span><span>02:34</span></div>
+        <div class="mob-tl-row">
+          <div class="mob-tl-lbl">V1</div>
+          <div class="mob-tl-track">
+            <div class="mob-tl-clip v1"></div>
+            <div class="mob-tl-clip v2"></div>
+            <div class="mob-tl-clip v3"></div>
+            <div class="mob-tl-ph"></div>
+          </div>
+        </div>
+        <div class="mob-tl-row">
+          <div class="mob-tl-lbl">A1</div>
+          <div class="mob-tl-track">
+            <div class="mob-tl-clip a1"></div>
+            <div class="mob-tl-ph" style="animation-delay:.8s;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- LEFT: clean title -->
   <div class="hl">
     <div class="h-tag" data-en="Premium Video Editor — Available Worldwide" data-de="Premium Video Editor — Weltweit verfügbar">Premium Video Editor — Available Worldwide</div>
@@ -1435,6 +1527,12 @@ function handleForm(e){
     setTimeout(()=>{document.getElementById('ctf').style.display='none';document.getElementById('fok').style.display='block';},350);
   },1100);
 }
+
+/* ── MOBILE TIMECODE ── */
+(function(){
+  let t=0;const el=document.getElementById('mob-tc');if(!el)return;
+  setInterval(()=>{t++;const s=t%60,m=Math.floor(t/60)%60;el.textContent=`00:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}:00`;},1000);
+})();
 
 /* ── HAMBURGER MENU ── */
 function toggleMenu(){
