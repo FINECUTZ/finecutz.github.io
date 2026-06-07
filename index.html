@@ -624,7 +624,7 @@ footer{border-top:1px solid rgba(201,169,110,.07);padding:28px 56px;display:flex
 
   /* hero */
   #hero{min-height:100vh;height:auto;}
-  .hl{padding:100px 20px 60px;justify-content:flex-end;}
+  .hl{padding:80px 20px 40px;justify-content:center;}
   .h1{font-size:clamp(3.8rem,17vw,6rem);}
   .h-desc{font-size:.8rem;max-width:100%;line-height:1.8;}
   .h-btns{flex-direction:column;align-items:flex-start;gap:14px;}
@@ -723,6 +723,10 @@ footer{border-top:1px solid rgba(201,169,110,.07);padding:28px 56px;display:flex
 
 <!-- MOBILE MENU -->
 <div class="mob-menu" id="mob-menu">
+  <!-- close button top left -->
+  <button onclick="toggleMenu()" style="position:absolute;top:20px;left:20px;background:none;border:none;cursor:pointer;display:flex;align-items:center;gap:10px;color:var(--muted);font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;padding:8px;">
+    ← <span data-en="Back" data-de="Zurück">Back</span>
+  </button>
   <a href="#portfolio" onclick="toggleMenu()" data-en="Work" data-de="Arbeit">Work</a>
   <a href="#services" onclick="toggleMenu()" data-en="Services" data-de="Leistungen">Services</a>
   <a href="#about" onclick="toggleMenu()" data-en="About" data-de="Über mich">About</a>
@@ -1542,6 +1546,16 @@ function toggleMenu(){
   menu.classList.toggle('open');
   document.body.style.overflow=menu.classList.contains('open')?'hidden':'';
 }
+// swipe left to close menu
+(function(){
+  let startX=0;
+  const menu=document.getElementById('mob-menu');
+  menu.addEventListener('touchstart',e=>{startX=e.touches[0].clientX;},{passive:true});
+  menu.addEventListener('touchend',e=>{
+    const dx=e.changedTouches[0].clientX-startX;
+    if(dx<-60&&menu.classList.contains('open'))toggleMenu(); // swipe left = close
+  },{passive:true});
+})();
 
 /* ── LANGUAGE SWITCHER ── */
 function setLang(lang){
