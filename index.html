@@ -540,6 +540,29 @@ footer{border-top:1px solid rgba(201,169,110,.07);padding:28px 56px;display:flex
   .ht-wrap{padding:50px 0;}
 }
 
+/* ── MOBILE HERO BG (replaces monitor) ── */
+.mob-hero-bg{display:none;}
+@media(max-width:1024px){
+  .mob-hero-bg{
+    display:block;position:absolute;inset:0;z-index:0;pointer-events:none;
+    background:
+      radial-gradient(ellipse 80% 60% at 80% 20%,rgba(201,169,110,.07) 0%,transparent 70%),
+      radial-gradient(ellipse 60% 80% at 20% 90%,rgba(201,169,110,.04) 0%,transparent 60%);
+  }
+  .mob-hero-bg::before{
+    content:'FINECUTZ';
+    position:absolute;bottom:-20px;right:-20px;
+    font-family:'Bebas Neue',sans-serif;font-size:38vw;
+    color:rgba(201,169,110,.04);line-height:1;letter-spacing:-.02em;
+    pointer-events:none;
+  }
+  /* services — vertical on tablet too */
+  .svc-scroll{flex-direction:column;overflow-x:visible;}
+  .svc{min-width:unset;width:100%;}
+  .svc-end{min-width:unset;width:100%;padding:28px;writing-mode:horizontal-tb;}
+  .svc-end a{writing-mode:horizontal-tb;transform:none;font-size:1rem;}
+}
+
 /* ── MOBILE (max 600px) ── */
 @media(max-width:600px){
   /* nav */
@@ -547,11 +570,13 @@ footer{border-top:1px solid rgba(201,169,110,.07);padding:28px 56px;display:flex
   .lsw{display:none;}
 
   /* hero */
-  .hl{padding:90px 20px 50px;}
-  .h1{font-size:clamp(3.5rem,16vw,5.5rem);}
-  .h-desc{font-size:.78rem;max-width:100%;}
-  .h-btns{flex-direction:column;align-items:flex-start;gap:16px;}
-  .btn-g{padding:13px 30px;font-size:.85rem;}
+  #hero{min-height:100vh;height:auto;}
+  .hl{padding:100px 20px 60px;justify-content:flex-end;}
+  .h1{font-size:clamp(3.8rem,17vw,6rem);}
+  .h-desc{font-size:.8rem;max-width:100%;line-height:1.8;}
+  .h-btns{flex-direction:column;align-items:flex-start;gap:14px;}
+  .btn-g{padding:14px 32px;font-size:.88rem;width:100%;text-align:center;}
+  .btn-t{font-size:.65rem;}
 
   /* sections */
   #portfolio{padding:60px 18px;}
@@ -658,6 +683,7 @@ footer{border-top:1px solid rgba(201,169,110,.07);padding:28px 56px;display:flex
 
 <!-- ══ HERO ══ -->
 <section id="hero">
+  <div class="mob-hero-bg"></div>
   <!-- LEFT: clean title -->
   <div class="hl">
     <div class="h-tag" data-en="Premium Video Editor — Available Worldwide" data-de="Premium Video Editor — Weltweit verfügbar">Premium Video Editor — Available Worldwide</div>
@@ -764,8 +790,8 @@ footer{border-top:1px solid rgba(201,169,110,.07);padding:28px 56px;display:flex
 <!-- MARQUEE -->
 <div class="mq">
   <div class="mqt">
-    <span class="mqi"><b>✦</b> MARKETING VIDEOS </span><span class="mqi"><b>✦</b> INVESTOR CONTENT </span><span class="mqi"><b>✦</b> TRADER REELS </span><span class="mqi"><b>✦</b> YOUTUBE EDITS </span><span class="mqi"><b>✦</b> VLOG PRODUCTION </span><span class="mqi"><b>✦</b> BRAND FILMS </span>
-    <span class="mqi"><b>✦</b> MARKETING VIDEOS </span><span class="mqi"><b>✦</b> INVESTOR CONTENT </span><span class="mqi"><b>✦</b> TRADER REELS </span><span class="mqi"><b>✦</b> YOUTUBE EDITS </span><span class="mqi"><b>✦</b> VLOG PRODUCTION </span><span class="mqi"><b>✦</b> BRAND FILMS </span>
+    <span class="mqi"><b>✦</b> SHORT FORM </span><span class="mqi"><b>✦</b> LONG FORM </span><span class="mqi"><b>✦</b> YOUTUBE </span><span class="mqi"><b>✦</b> INSTAGRAM </span><span class="mqi"><b>✦</b> TIKTOK </span><span class="mqi"><b>✦</b> REELS </span><span class="mqi"><b>✦</b> VLOGS </span><span class="mqi"><b>✦</b> CONTENT CREATION </span>
+    <span class="mqi"><b>✦</b> SHORT FORM </span><span class="mqi"><b>✦</b> LONG FORM </span><span class="mqi"><b>✦</b> YOUTUBE </span><span class="mqi"><b>✦</b> INSTAGRAM </span><span class="mqi"><b>✦</b> TIKTOK </span><span class="mqi"><b>✦</b> REELS </span><span class="mqi"><b>✦</b> VLOGS </span><span class="mqi"><b>✦</b> CONTENT CREATION </span>
   </div>
 </div>
 
