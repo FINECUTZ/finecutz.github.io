@@ -293,11 +293,8 @@ body{background:var(--black);color:var(--white);font-family:'Syne',sans-serif;cu
 
 /* right grid — 2×2 */
 .port-r{position:sticky;top:100px;align-self:start;}
-.port-stats{display:flex;align-items:center;gap:0;margin-top:auto;padding:36px 0;border-top:1px solid rgba(201,169,110,.08);border-bottom:1px solid rgba(201,169,110,.08);}
-.port-stat{flex:1;text-align:center;}
-.port-stat-n{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.2rem,4vw,3.8rem);color:var(--gold2);line-height:1;}
-.port-stat-l{font-family:'DM Mono',monospace;font-size:.52rem;letter-spacing:.2em;color:var(--muted);text-transform:uppercase;margin-top:6px;}
-.port-stat-div{width:1px;height:40px;background:rgba(201,169,110,.15);}
+.port-cta{display:block;margin-top:auto;padding:24px 0;text-align:center;font-family:'Bebas Neue',sans-serif;font-size:clamp(1.8rem,3vw,2.8rem);letter-spacing:.14em;color:var(--black);background:var(--gold);text-decoration:none;transition:all .3s;border:1px solid var(--gold);}
+.port-cta:hover{background:transparent;color:var(--gold);}
 .plat-row{display:flex;flex-wrap:wrap;gap:10px 20px;padding-top:28px;}
 .plat-item{display:flex;align-items:center;gap:8px;color:rgba(242,237,230,.35);font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;transition:color .3s;}
 .plat-item:hover{color:var(--gold);}
@@ -949,22 +946,7 @@ footer{border-top:1px solid rgba(201,169,110,.07);padding:28px 56px;display:flex
         <div><div class="proc-name" data-en="WE PERFECT IT TOGETHER" data-de="WIR PERFEKTIONIEREN GEMEINSAM">WE PERFECT IT TOGETHER</div><p class="proc-desc" data-en="Revisions until you love it. No limits. It's your video — it has to be right." data-de="Revisionen bis du es liebst. Keine Limits. Es ist dein Video — es muss stimmen.">Revisions until you love it. No limits. It's your video — it has to be right.</p></div>
       </div>
     </div>
-    <div class="port-stats">
-      <div class="port-stat">
-        <div class="port-stat-n">48H</div>
-        <div class="port-stat-l" data-en="Turnaround" data-de="Lieferzeit">Turnaround</div>
-      </div>
-      <div class="port-stat-div"></div>
-      <div class="port-stat">
-        <div class="port-stat-n">∞</div>
-        <div class="port-stat-l" data-en="Revisions" data-de="Revisionen">Revisions</div>
-      </div>
-      <div class="port-stat-div"></div>
-      <div class="port-stat">
-        <div class="port-stat-n">100%</div>
-        <div class="port-stat-l" data-en="Client Vision" data-de="Kundenvision">Client Vision</div>
-      </div>
-    </div>
+    <a href="#contact" class="port-cta" data-en="BOOK A CALL" data-de="JETZT BUCHEN">BOOK A CALL</a>
     <div class="plat-row">
       <div class="plat-item">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="var(--gold)"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8zM9.7 15.5V8.5l6.3 3.5-6.3 3.5z"/></svg>
