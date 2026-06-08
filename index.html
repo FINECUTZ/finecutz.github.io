@@ -263,7 +263,7 @@ body{background:var(--black);color:var(--white);font-family:'Syne',sans-serif;cu
 ══════════════════════════════ */
 #portfolio{padding:130px 60px;display:grid;grid-template-columns:1fr 1.1fr;gap:80px;align-items:stretch;}
 
-.port-l{display:flex;flex-direction:column;justify-content:flex-start;gap:2vh;}
+.port-l{display:flex;flex-direction:column;justify-content:flex-start;gap:2vh;height:100%;}
 .port-l .proc-list{margin-top:0;}
 .port-ey{font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.28em;color:var(--gold);margin-bottom:16px;text-transform:uppercase;}
 .port-title{
@@ -293,7 +293,12 @@ body{background:var(--black);color:var(--white);font-family:'Syne',sans-serif;cu
 
 /* right grid — 2×2 */
 .port-r{position:sticky;top:100px;align-self:start;}
-.plat-row{display:flex;flex-wrap:wrap;gap:10px 20px;margin-top:auto;padding-top:40px;border-top:1px solid rgba(201,169,110,.1);}
+.port-stats{display:flex;align-items:center;gap:0;margin-top:auto;padding:36px 0;border-top:1px solid rgba(201,169,110,.08);border-bottom:1px solid rgba(201,169,110,.08);}
+.port-stat{flex:1;text-align:center;}
+.port-stat-n{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.2rem,4vw,3.8rem);color:var(--gold2);line-height:1;}
+.port-stat-l{font-family:'DM Mono',monospace;font-size:.52rem;letter-spacing:.2em;color:var(--muted);text-transform:uppercase;margin-top:6px;}
+.port-stat-div{width:1px;height:40px;background:rgba(201,169,110,.15);}
+.plat-row{display:flex;flex-wrap:wrap;gap:10px 20px;padding-top:28px;}
 .plat-item{display:flex;align-items:center;gap:8px;color:rgba(242,237,230,.35);font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;transition:color .3s;}
 .plat-item:hover{color:var(--gold);}
 .port-grid{display:grid;grid-template-columns:1fr 1fr;gap:5px;}
@@ -942,6 +947,22 @@ footer{border-top:1px solid rgba(201,169,110,.07);padding:28px 56px;display:flex
       <div class="proc-item">
         <span class="proc-num">04</span>
         <div><div class="proc-name" data-en="WE PERFECT IT TOGETHER" data-de="WIR PERFEKTIONIEREN GEMEINSAM">WE PERFECT IT TOGETHER</div><p class="proc-desc" data-en="Revisions until you love it. No limits. It's your video — it has to be right." data-de="Revisionen bis du es liebst. Keine Limits. Es ist dein Video — es muss stimmen.">Revisions until you love it. No limits. It's your video — it has to be right.</p></div>
+      </div>
+    </div>
+    <div class="port-stats">
+      <div class="port-stat">
+        <div class="port-stat-n">48H</div>
+        <div class="port-stat-l" data-en="Turnaround" data-de="Lieferzeit">Turnaround</div>
+      </div>
+      <div class="port-stat-div"></div>
+      <div class="port-stat">
+        <div class="port-stat-n">∞</div>
+        <div class="port-stat-l" data-en="Revisions" data-de="Revisionen">Revisions</div>
+      </div>
+      <div class="port-stat-div"></div>
+      <div class="port-stat">
+        <div class="port-stat-n">100%</div>
+        <div class="port-stat-l" data-en="Client Vision" data-de="Kundenvision">Client Vision</div>
       </div>
     </div>
     <div class="plat-row">
