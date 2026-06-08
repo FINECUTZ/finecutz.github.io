@@ -304,6 +304,8 @@ body{background:var(--black);color:var(--white);font-family:'Syne',sans-serif;cu
 .pvid video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
 .pvid-embed{position:absolute;inset:0;width:100%;height:100%;border:0;z-index:1;}
 .pvid.tall .pvid-embed{transform:scale(1.34);transform-origin:center center;}
+.pvid-mute{position:absolute;bottom:14px;right:14px;z-index:3;width:34px;height:34px;border-radius:50%;border:1px solid rgba(201,169,110,.32);background:rgba(2,2,2,.5);backdrop-filter:blur(4px);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .25s;}
+.pvid-mute:hover{background:rgba(2,2,2,.75);border-color:rgba(201,169,110,.6);}
 .pvid-ov,.pvid-info{pointer-events:none;}
 .pvid-ov{position:absolute;inset:0;background:linear-gradient(135deg,rgba(12,10,6,.5),rgba(2,2,2,.1));transition:opacity .4s;}
 .pvid:hover .pvid-ov{opacity:.2;}
@@ -955,8 +957,12 @@ footer{border-top:1px solid rgba(201,169,110,.07);padding:28px 56px;display:flex
         <div class="pvid-info"><div class="pvid-cat" data-en="Short-Form / Reels" data-de="Short-Form / Reels">Short-Form / Reels</div><div class="pvid-name" data-en="Project 02" data-de="Projekt 02">Project 02</div></div>
       </div>
       <div class="pvid tall">
-        <iframe class="pvid-embed" src="https://www.youtube.com/embed/57wH9YvyhtA?autoplay=1&mute=1&loop=1&playlist=57wH9YvyhtA&controls=1&modestbranding=1&playsinline=1&rel=0" title="Mindset & Growth" frameborder="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+        <iframe id="mg-embed" class="pvid-embed" src="https://www.youtube.com/embed/57wH9YvyhtA?autoplay=1&mute=1&loop=1&playlist=57wH9YvyhtA&controls=0&modestbranding=1&playsinline=1&rel=0&enablejsapi=1" title="Mindset & Growth" frameborder="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
         <div class="pvid-ov"></div>
+        <button class="pvid-mute" id="mg-mute" type="button" aria-label="Toggle sound" onclick="toggleMgSound(event)">
+          <svg id="mg-mute-on" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+          <svg id="mg-mute-off" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+        </button>
         <div class="pvid-info"><div class="pvid-cat" data-en="Mindset & Growth" data-de="Mindset & Growth">Mindset & Growth</div><div class="pvid-name" data-en="Project 03" data-de="Projekt 03">Project 03</div></div>
       </div>
       <div class="pvid wide">
@@ -1584,6 +1590,20 @@ function setLang(lang){
     else if(el.tagName==='BUTTON'&&el.id&&el.id.startsWith('b')){el.textContent=val;}
     else{el.innerHTML=val;}
   });
+}
+
+/* ── MINDSET VIDEO SOUND TOGGLE ── */
+let mgMuted=true;
+function ytCmd(func){
+  const f=document.getElementById('mg-embed');
+  if(f&&f.contentWindow)f.contentWindow.postMessage(JSON.stringify({event:'command',func:func,args:[]}),'*');
+}
+function toggleMgSound(e){
+  e.stopPropagation();
+  mgMuted=!mgMuted;
+  ytCmd(mgMuted?'mute':'unMute');
+  document.getElementById('mg-mute-on').style.display=mgMuted?'block':'none';
+  document.getElementById('mg-mute-off').style.display=mgMuted?'none':'block';
 }
 
 /* ── PORTFOLIO VIDEO LIGHTBOX ── */
