@@ -291,6 +291,9 @@ body{background:var(--black);color:var(--white);font-family:'Syne',sans-serif;cu
   cursor:none;transition:all .4s;
 }
 .pvid.wide{grid-column:span 2;aspect-ratio:21/9;}
+.pvid.tall{aspect-ratio:9/16;}
+.pvid.has-video{cursor:pointer;}
+.pvid video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
 .pvid-ov{position:absolute;inset:0;background:linear-gradient(135deg,rgba(12,10,6,.5),rgba(2,2,2,.1));transition:opacity .4s;}
 .pvid:hover .pvid-ov{opacity:.2;}
 .pvid-ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-size:.5rem;letter-spacing:.18em;color:rgba(201,169,110,.2);flex-direction:column;gap:7px;}
@@ -932,25 +935,25 @@ footer{border-top:1px solid rgba(201,169,110,.07);padding:28px 56px;display:flex
         <div class="pvid-ov"></div>
         <div class="pvid-ph"><span class="pvid-ph-i">▶</span><span data-en="Featured — Add Your Video Here" data-de="Hauptprojekt — Füge dein Video ein">Featured — Add Your Video Here</span></div>
         <div class="pvid-play"><svg width="14" height="14" viewBox="0 0 24 24" fill="var(--gold)"><polygon points="5,3 19,12 5,21"/></svg></div>
-        <div class="pvid-info"><div class="pvid-cat" data-en="Investor Content" data-de="Investoren Content">Investor Content</div><div class="pvid-name" data-en="Market Recap" data-de="Marktübersicht">Market Recap</div></div>
+        <div class="pvid-info"><div class="pvid-cat" data-en="Long-Form / YouTube" data-de="Long-Form / YouTube">Long-Form / YouTube</div><div class="pvid-name" data-en="Project 01" data-de="Projekt 01">Project 01</div></div>
       </div>
-      <div class="pvid">
+      <div class="pvid tall">
         <div class="pvid-ov"></div>
-        <div class="pvid-ph"><span class="pvid-ph-i">▶</span><span data-en="Project 02" data-de="Projekt 02">Project 02</span></div>
+        <div class="pvid-ph"><span class="pvid-ph-i">▶</span><span data-en="Project 02 — Add Your Video Here" data-de="Projekt 02 — Füge dein Video ein">Project 02 — Add Your Video Here</span></div>
         <div class="pvid-play"><svg width="12" height="12" viewBox="0 0 24 24" fill="var(--gold)"><polygon points="5,3 19,12 5,21"/></svg></div>
-        <div class="pvid-info"><div class="pvid-cat" data-en="Marketing" data-de="Marketing">Marketing</div><div class="pvid-name" data-en="Brand Film" data-de="Markenfilm">Brand Film</div></div>
+        <div class="pvid-info"><div class="pvid-cat" data-en="Short-Form / Reels" data-de="Short-Form / Reels">Short-Form / Reels</div><div class="pvid-name" data-en="Project 02" data-de="Projekt 02">Project 02</div></div>
       </div>
-      <div class="pvid">
+      <div class="pvid tall has-video" data-yt="57wH9YvyhtA">
         <div class="pvid-ov"></div>
-        <div class="pvid-ph"><span class="pvid-ph-i">▶</span><span data-en="Project 03" data-de="Projekt 03">Project 03</span></div>
+        <div class="pvid-ph"><span class="pvid-ph-i">▶</span><span data-en="Mindset Edit — Click to Watch" data-de="Mindset Edit — Klicken zum Ansehen">Mindset Edit — Click to Watch</span></div>
         <div class="pvid-play"><svg width="12" height="12" viewBox="0 0 24 24" fill="var(--gold)"><polygon points="5,3 19,12 5,21"/></svg></div>
-        <div class="pvid-info"><div class="pvid-cat" data-en="YouTube" data-de="YouTube">YouTube</div><div class="pvid-name" data-en="Creator Edit" data-de="Creator Schnitt">Creator Edit</div></div>
+        <div class="pvid-info"><div class="pvid-cat" data-en="Mindset & Growth" data-de="Mindset & Growth">Mindset & Growth</div><div class="pvid-name" data-en="Project 03" data-de="Projekt 03">Project 03</div></div>
       </div>
-      <div class="pvid">
+      <div class="pvid wide">
         <div class="pvid-ov"></div>
-        <div class="pvid-ph"><span class="pvid-ph-i">▶</span><span data-en="Project 04" data-de="Projekt 04">Project 04</span></div>
-        <div class="pvid-play"><svg width="12" height="12" viewBox="0 0 24 24" fill="var(--gold)"><polygon points="5,3 19,12 5,21"/></svg></div>
-        <div class="pvid-info"><div class="pvid-cat" data-en="Trader Content" data-de="Trader Content">Trader Content</div><div class="pvid-name" data-en="Strategy Breakdown" data-de="Strategie Breakdown">Strategy Breakdown</div></div>
+        <div class="pvid-ph"><span class="pvid-ph-i">▶</span><span data-en="Project 04 — Add Your Video Here" data-de="Projekt 04 — Füge dein Video ein">Project 04 — Add Your Video Here</span></div>
+        <div class="pvid-play"><svg width="14" height="14" viewBox="0 0 24 24" fill="var(--gold)"><polygon points="5,3 19,12 5,21"/></svg></div>
+        <div class="pvid-info"><div class="pvid-cat" data-en="Vlog / Content Creation" data-de="Vlog / Content Creation">Vlog / Content Creation</div><div class="pvid-name" data-en="Project 04" data-de="Projekt 04">Project 04</div></div>
       </div>
     </div>
   </div>
@@ -1175,9 +1178,9 @@ footer{border-top:1px solid rgba(201,169,110,.07);padding:28px 56px;display:flex
           <label data-en="Service Needed" data-de="Gewünschter Service">Service Needed</label>
           <select required>
             <option value="" disabled selected data-en="Select..." data-de="Auswählen...">Select...</option>
-            <option data-en="Financial / Investor Content" data-de="Finanz-Content">Financial / Investor Content</option>
-            <option data-en="Marketing Campaign" data-de="Marketing Kampagne">Marketing Campaign</option>
-            <option data-en="YouTube / Creator Edit" data-de="YouTube Schnitt">YouTube / Creator Edit</option>
+            <option data-en="Long-Form / YouTube" data-de="Long-Form / YouTube">Long-Form / YouTube</option>
+            <option data-en="Short-Form / Reels & TikTok" data-de="Short-Form / Reels & TikTok">Short-Form / Reels & TikTok</option>
+            <option data-en="Vlog / Content Creation" data-de="Vlog / Content Creation">Vlog / Content Creation</option>
             <option data-en="Monthly Retainer" data-de="Monatliches Paket">Monthly Retainer</option>
             <option data-en="Other" data-de="Sonstiges">Other</option>
           </select>
@@ -1572,6 +1575,30 @@ function setLang(lang){
     else{el.innerHTML=val;}
   });
 }
+
+/* ── PORTFOLIO VIDEO LIGHTBOX ── */
+(function(){
+  const overlay=document.createElement('div');
+  overlay.id='vid-lightbox';
+  overlay.style.cssText='position:fixed;inset:0;z-index:9999;background:rgba(2,2,2,.92);display:none;align-items:center;justify-content:center;cursor:pointer;';
+  overlay.innerHTML='<div id="vid-lightbox-inner" style="max-width:92vw;max-height:88vh;cursor:default;"></div>';
+  document.body.appendChild(overlay);
+  const inner=overlay.querySelector('#vid-lightbox-inner');
+  function close(){overlay.style.display='none';inner.innerHTML='';}
+  overlay.addEventListener('click',close);
+  document.querySelectorAll('.pvid.has-video').forEach(card=>{
+    card.addEventListener('click',()=>{
+      const ytId=card.getAttribute('data-yt');
+      if(!ytId)return;
+      const portrait=card.classList.contains('tall');
+      inner.style.aspectRatio=portrait?'9/16':'16/9';
+      inner.style.height=portrait?'88vh':'auto';
+      inner.style.width=portrait?'auto':'min(92vw,1100px)';
+      inner.innerHTML='<iframe width="100%" height="100%" style="display:block;border:0;" src="https://www.youtube.com/embed/'+ytId+'?autoplay=1" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>';
+      overlay.style.display='flex';
+    });
+  });
+})();
 </script>
 </body>
 </html>
