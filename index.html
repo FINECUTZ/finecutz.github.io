@@ -987,7 +987,7 @@ footer{border-top:1px solid rgba(201,169,110,.07);padding:28px 56px;display:flex
         <div class="pvid-info"><div class="pvid-cat" data-en="Short-Form / Reels" data-de="Short-Form / Reels">Short-Form / Reels</div><div class="pvid-name" data-en="Project 02" data-de="Projekt 02">Project 02</div></div>
       </div>
       <div class="pvid tall">
-        <iframe id="mg-embed" class="pvid-embed" src="https://www.youtube.com/embed/57wH9YvyhtA?autoplay=1&mute=1&loop=1&playlist=57wH9YvyhtA&controls=0&modestbranding=1&playsinline=1&rel=0&enablejsapi=1" title="Mindset & Growth" frameborder="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+        <iframe id="mg-embed" class="pvid-embed" src="https://www.youtube.com/embed/57wH9YvyhtA?autoplay=1&mute=1&controls=0&modestbranding=1&playsinline=1&rel=0&enablejsapi=1&origin=https://finecutz.github.io" title="Mindset & Growth" frameborder="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
         <div class="pvid-ov"></div>
         <button class="pvid-mute" id="mg-mute" type="button" aria-label="Toggle sound" onclick="toggleMgSound(event)">
           <svg id="mg-mute-on" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
@@ -1622,16 +1622,27 @@ function setLang(lang){
   });
 }
 
-/* ── MINDSET VIDEO SOUND TOGGLE ── */
-let mgMuted=true;
-function ytCmd(func){
-  const f=document.getElementById('mg-embed');
-  if(f&&f.contentWindow)f.contentWindow.postMessage(JSON.stringify({event:'command',func:func,args:[]}),'*');
-}
+/* ── MINDSET VIDEO: seamless loop + sound toggle via YT IFrame API ── */
+let mgMuted=true,mgPlayer=null;
+window.onYouTubeIframeAPIReady=function(){
+  mgPlayer=new YT.Player('mg-embed',{
+    events:{
+      onReady:function(e){e.target.mute();e.target.playVideo();},
+      onStateChange:function(e){
+        if(e.data===YT.PlayerState.ENDED){e.target.seekTo(0);e.target.playVideo();}
+      }
+    }
+  });
+};
+(function(){
+  const tag=document.createElement('script');
+  tag.src='https://www.youtube.com/iframe_api';
+  document.head.appendChild(tag);
+})();
 function toggleMgSound(e){
   e.stopPropagation();
   mgMuted=!mgMuted;
-  ytCmd(mgMuted?'mute':'unMute');
+  if(mgPlayer){mgMuted?mgPlayer.mute():mgPlayer.unMute();}
   document.getElementById('mg-mute-on').style.display=mgMuted?'block':'none';
   document.getElementById('mg-mute-off').style.display=mgMuted?'none':'block';
 }
