@@ -263,14 +263,15 @@ body{background:var(--black);color:var(--white);font-family:'Syne',sans-serif;cu
 ══════════════════════════════ */
 #portfolio{padding:130px 60px;display:grid;grid-template-columns:1fr 1.1fr;gap:80px;align-items:stretch;}
 
-.port-l{display:flex;flex-direction:column;justify-content:space-between;}
+.port-l{display:flex;flex-direction:column;justify-content:flex-start;gap:2vh;}
+.port-l .proc-list{margin-top:auto;}
 .port-ey{font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.28em;color:var(--gold);margin-bottom:16px;text-transform:uppercase;}
 .port-title{
   font-family:'Bebas Neue',sans-serif;font-size:clamp(4.2rem,9vw,10rem);line-height:1;margin-bottom:36px;
   background:linear-gradient(110deg,var(--white) 25%,var(--gold2) 50%,var(--white) 75%);
   background-size:220% auto;-webkit-background-clip:text;background-clip:text;color:transparent;
   animation:port-shimmer 7s linear infinite,port-float 5s ease-in-out infinite;
-  display:inline-block;
+  display:inline-block;align-self:flex-start;
 }
 .port-title em{background:none;-webkit-background-clip:initial;background-clip:initial;color:var(--gold);font-style:normal;}
 @keyframes port-shimmer{0%{background-position:200% center;}100%{background-position:-200% center;}}
