@@ -294,6 +294,8 @@ body{background:var(--black);color:var(--white);font-family:'Syne',sans-serif;cu
 .pvid.tall{aspect-ratio:9/16;}
 .pvid.has-video{cursor:pointer;}
 .pvid video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+.pvid-embed{position:absolute;inset:0;width:100%;height:100%;border:0;z-index:1;}
+.pvid-ov,.pvid-info{pointer-events:none;}
 .pvid-ov{position:absolute;inset:0;background:linear-gradient(135deg,rgba(12,10,6,.5),rgba(2,2,2,.1));transition:opacity .4s;}
 .pvid:hover .pvid-ov{opacity:.2;}
 .pvid-ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-size:.5rem;letter-spacing:.18em;color:rgba(201,169,110,.2);flex-direction:column;gap:7px;}
@@ -943,10 +945,9 @@ footer{border-top:1px solid rgba(201,169,110,.07);padding:28px 56px;display:flex
         <div class="pvid-play"><svg width="12" height="12" viewBox="0 0 24 24" fill="var(--gold)"><polygon points="5,3 19,12 5,21"/></svg></div>
         <div class="pvid-info"><div class="pvid-cat" data-en="Short-Form / Reels" data-de="Short-Form / Reels">Short-Form / Reels</div><div class="pvid-name" data-en="Project 02" data-de="Projekt 02">Project 02</div></div>
       </div>
-      <div class="pvid tall has-video" data-yt="57wH9YvyhtA">
+      <div class="pvid tall">
+        <iframe class="pvid-embed" src="https://www.youtube.com/embed/57wH9YvyhtA?autoplay=1&mute=1&loop=1&playlist=57wH9YvyhtA&controls=1&modestbranding=1&playsinline=1&rel=0" title="Mindset & Growth" frameborder="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
         <div class="pvid-ov"></div>
-        <div class="pvid-ph"><span class="pvid-ph-i">▶</span><span data-en="Mindset Edit — Click to Watch" data-de="Mindset Edit — Klicken zum Ansehen">Mindset Edit — Click to Watch</span></div>
-        <div class="pvid-play"><svg width="12" height="12" viewBox="0 0 24 24" fill="var(--gold)"><polygon points="5,3 19,12 5,21"/></svg></div>
         <div class="pvid-info"><div class="pvid-cat" data-en="Mindset & Growth" data-de="Mindset & Growth">Mindset & Growth</div><div class="pvid-name" data-en="Project 03" data-de="Projekt 03">Project 03</div></div>
       </div>
       <div class="pvid wide">
