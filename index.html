@@ -312,7 +312,8 @@ body{background:var(--black);color:var(--white);font-family:'Syne',sans-serif;cu
 .pvid-embed{position:absolute;inset:0;width:100%;height:100%;border:0;z-index:1;}
 .pvid.tall .pvid-embed{transform:scale(1.34);transform-origin:center center;}
 .pvid-thumb{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .3s;}
-.pvid-vol-wrap{grid-column:span 2;display:flex;align-items:center;gap:14px;padding:14px 4px 4px;}
+.pvid-vol-wrap{position:absolute;bottom:0;left:0;right:0;z-index:4;display:flex;align-items:center;gap:10px;padding:10px 12px;background:linear-gradient(to top,rgba(2,2,2,.75),transparent);opacity:0;transition:opacity .3s;}
+.pvid:hover .pvid-vol-wrap{opacity:1;}
 .pvid-vol-btn{background:none;border:none;color:var(--gold);cursor:pointer;padding:0;display:flex;align-items:center;flex-shrink:0;opacity:.7;transition:opacity .2s;}
 .pvid-vol-btn:hover{opacity:1;}
 .pvid-vol-slider{flex:1;-webkit-appearance:none;appearance:none;height:2px;background:rgba(201,169,110,.2);border-radius:2px;outline:none;cursor:pointer;}
@@ -967,22 +968,29 @@ footer{border-top:1px solid rgba(201,169,110,.07);padding:28px 56px;display:flex
         <div class="pvid-play"><svg width="14" height="14" viewBox="0 0 24 24" fill="var(--gold)"><polygon points="5,3 19,12 5,21"/></svg></div>
         <div class="pvid-info"><div class="pvid-cat" data-en="Long-Form / YouTube" data-de="Long-Form / YouTube">Long-Form / YouTube</div><div class="pvid-name" data-en="Project 01" data-de="Projekt 01">Project 01</div></div>
       </div>
-      <div class="pvid tall">
+      <div class="pvid tall" id="pvid-1">
         <iframe id="pv1" class="pvid-embed" src="https://www.youtube.com/embed/2U7jPlYHwW4?autoplay=1&mute=1&controls=0&modestbranding=1&playsinline=1&rel=0&enablejsapi=1&origin=https://finecutz.github.io" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
         <div class="pvid-ov"></div>
+        <div class="pvid-vol-wrap">
+          <button class="pvid-vol-btn" onclick="toggleVolP(1)">
+            <svg class="vi-off" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+            <svg class="vi-on" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+          </button>
+          <input class="pvid-vol-slider" type="range" min="0" max="100" value="0" oninput="setVolP(1,this)">
+        </div>
         <div class="pvid-info"><div class="pvid-cat" data-en="Short-Form / Reels" data-de="Short-Form / Reels">Short-Form / Reels</div><div class="pvid-name" data-en="Project 02" data-de="Projekt 02">Project 02</div></div>
       </div>
-      <div class="pvid tall">
+      <div class="pvid tall" id="pvid-2">
         <iframe id="pv2" class="pvid-embed" src="https://www.youtube.com/embed/57wH9YvyhtA?autoplay=1&mute=1&controls=0&modestbranding=1&playsinline=1&rel=0&enablejsapi=1&origin=https://finecutz.github.io" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
         <div class="pvid-ov"></div>
+        <div class="pvid-vol-wrap">
+          <button class="pvid-vol-btn" onclick="toggleVolP(2)">
+            <svg class="vi-off" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+            <svg class="vi-on" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+          </button>
+          <input class="pvid-vol-slider" type="range" min="0" max="100" value="0" oninput="setVolP(2,this)">
+        </div>
         <div class="pvid-info"><div class="pvid-cat" data-en="Mindset & Growth" data-de="Mindset & Growth">Mindset & Growth</div><div class="pvid-name" data-en="Project 03" data-de="Projekt 03">Project 03</div></div>
-      </div>
-      <div class="pvid-vol-wrap">
-        <button class="pvid-vol-btn" id="vol-btn" onclick="toggleVol()">
-          <svg id="vol-icon-off" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
-          <svg id="vol-icon-on" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
-        </button>
-        <input class="pvid-vol-slider" id="vol-slider" type="range" min="0" max="100" value="0" oninput="setVol(this.value)">
       </div>
       <div class="pvid wide">
         <div class="pvid-ov"></div>
@@ -1611,34 +1619,34 @@ function setLang(lang){
   });
 }
 
-/* ── PORTFOLIO VIDEOS: seamless loop + volume slider ── */
-const pvPlayers=[];
-let pvMuted=true;
+/* ── PORTFOLIO VIDEOS: seamless loop + individual volume ── */
+const pvPlayers={};
 function onYouTubeIframeAPIReady(){
-  ['pv1','pv2'].forEach(id=>{
-    const p=new YT.Player(id,{
+  ['pv1','pv2'].forEach((id,i)=>{
+    pvPlayers[i+1]=new YT.Player(id,{
       events:{
-        onReady:e=>{e.target.mute();e.target.playVideo();pvPlayers.push(e.target);},
+        onReady:e=>{e.target.mute();e.target.playVideo();},
         onStateChange:e=>{if(e.data===0){e.target.seekTo(0);e.target.playVideo();}}
       }
     });
   });
 }
 (function(){const s=document.createElement('script');s.src='https://www.youtube.com/iframe_api';document.head.appendChild(s);})();
-function setVol(v){
-  const vol=parseInt(v);
-  pvPlayers.forEach(p=>{try{p.setVolume(vol);vol>0?p.unMute():p.mute();}catch(e){}});
-  pvMuted=vol===0;
-  document.getElementById('vol-icon-off').style.display=pvMuted?'block':'none';
-  document.getElementById('vol-icon-on').style.display=pvMuted?'none':'block';
-  const slider=document.getElementById('vol-slider');
-  slider.style.setProperty('--pct',vol+'%');
+function setVolP(n,input){
+  const vol=parseInt(input.value);
+  const p=pvPlayers[n];
+  if(p){try{p.setVolume(vol);vol>0?p.unMute():p.mute();}catch(e){}}
+  input.style.setProperty('--pct',vol+'%');
+  const wrap=input.closest('.pvid-vol-wrap');
+  wrap.querySelector('.vi-off').style.display=vol===0?'block':'none';
+  wrap.querySelector('.vi-on').style.display=vol===0?'none':'block';
 }
-function toggleVol(){
-  const slider=document.getElementById('vol-slider');
-  const newVal=pvMuted?70:0;
-  slider.value=newVal;
-  setVol(newVal);
+function toggleVolP(n){
+  const wrap=document.querySelector('#pvid-'+n+' .pvid-vol-wrap');
+  const slider=wrap.querySelector('input');
+  const cur=parseInt(slider.value);
+  slider.value=cur===0?70:0;
+  setVolP(n,slider);
 }
 
 /* ── PORTFOLIO VIDEO LIGHTBOX ── */
