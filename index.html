@@ -1625,7 +1625,7 @@ function onYouTubeIframeAPIReady(){
   ['pv1','pv2'].forEach((id,i)=>{
     pvPlayers[i+1]=new YT.Player(id,{
       events:{
-        onReady:e=>{e.target.mute();e.target.setPlaybackRate(2);e.target.playVideo();},
+        onReady:e=>{e.target.mute();e.target.playVideo();},
         onStateChange:e=>{if(e.data===0){e.target.seekTo(0);e.target.playVideo();}}
       }
     });
