@@ -1221,12 +1221,12 @@ footer{border-top:1px solid rgba(201,169,110,.07);padding:28px 56px;display:flex
     <div class="rv-r">
       <form class="ct-form" id="ctf" onsubmit="handleForm(event)">
         <div class="frow">
-          <div class="fg"><label data-en="Your Name" data-de="Dein Name">Your Name</label><input type="text" required placeholder="Stefan" data-en-ph="Stefan" data-de-ph="Stefan"></div>
-          <div class="fg"><label data-en="Your Email" data-de="Deine Email">Your Email</label><input type="email" required placeholder="you@example.com"></div>
+          <div class="fg"><label data-en="Your Name" data-de="Dein Name">Your Name</label><input type="text" name="name" required placeholder="Stefan" data-en-ph="Stefan" data-de-ph="Stefan"></div>
+          <div class="fg"><label data-en="Your Email" data-de="Deine Email">Your Email</label><input type="email" name="email" required placeholder="you@example.com"></div>
         </div>
         <div class="fg">
           <label data-en="Service Needed" data-de="Gewünschter Service">Service Needed</label>
-          <select required>
+          <select name="service" required>
             <option value="" disabled selected data-en="Select..." data-de="Auswählen...">Select...</option>
             <option data-en="Long-Form / YouTube" data-de="Long-Form / YouTube">Long-Form / YouTube</option>
             <option data-en="Short-Form / Reels & TikTok" data-de="Short-Form / Reels & TikTok">Short-Form / Reels & TikTok</option>
@@ -1235,7 +1235,7 @@ footer{border-top:1px solid rgba(201,169,110,.07);padding:28px 56px;display:flex
             <option data-en="Other" data-de="Sonstiges">Other</option>
           </select>
         </div>
-        <div class="fg"><label data-en="Tell Me About Your Project" data-de="Erzähl mir von deinem Projekt">Tell Me About Your Project</label><textarea rows="5" required placeholder="What do you need edited, what's your goal, what's your deadline?" data-en-ph="What do you need edited, what's your goal, what's your deadline?" data-de-ph="Was soll geschnitten werden, was ist dein Ziel und deine Deadline?"></textarea></div>
+        <div class="fg"><label data-en="Tell Me About Your Project" data-de="Erzähl mir von deinem Projekt">Tell Me About Your Project</label><textarea name="message" rows="5" required placeholder="What do you need edited, what's your goal, what's your deadline?" data-en-ph="What do you need edited, what's your goal, what's your deadline?" data-de-ph="Was soll geschnitten werden, was ist dein Ziel und deine Deadline?"></textarea></div>
         <button type="submit" class="fbtn"><span data-en="Send Message →" data-de="Nachricht senden →">Send Message →</span></button>
         <div id="fok"><p data-en="✦ Got it — I'll reply within 24 hours." data-de="✦ Erhalten — ich antworte innerhalb von 24 Stunden.">✦ Got it — I'll reply within 24 hours.</p></div>
       </form>
