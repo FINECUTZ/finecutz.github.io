@@ -492,6 +492,20 @@ body{background:var(--black);color:var(--white);font-family:'Syne',sans-serif;cu
 /* ══════════════════════════════
    CONTACT
 ══════════════════════════════ */
+#faq{padding:130px 60px;}
+.faq-inner{display:grid;grid-template-columns:1fr 1.4fr;gap:80px;align-items:start;}
+.faq-ey{font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.28em;color:var(--gold);margin-bottom:16px;text-transform:uppercase;}
+.faq-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.8rem,5vw,5rem);line-height:.95;}
+.faq-title em{color:var(--gold);font-style:normal;}
+.faq-list{display:flex;flex-direction:column;}
+.faq-item{border-bottom:1px solid rgba(201,169,110,.1);}
+.faq-q{width:100%;background:none;border:none;color:var(--white);font-family:'Syne',sans-serif;font-size:.95rem;font-weight:700;text-align:left;padding:22px 0;display:flex;justify-content:space-between;align-items:center;gap:16px;cursor:pointer;transition:color .3s;}
+.faq-q:hover{color:var(--gold);}
+.faq-arr{flex-shrink:0;transition:transform .35s;color:var(--gold);}
+.faq-item.open .faq-arr{transform:rotate(180deg);}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease;}
+.faq-item.open .faq-a{max-height:200px;}
+.faq-a p{padding-bottom:20px;font-size:.88rem;color:rgba(242,237,230,.45);line-height:1.8;}
 #contact{padding:130px 60px;position:relative;overflow:hidden;}
 #contact::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 50% 50% at 50% 50%,rgba(201,169,110,.035),transparent 70%);pointer-events:none;}
 .ct-grid{display:grid;grid-template-columns:1fr 1fr;gap:90px;align-items:start;position:relative;z-index:1;}
@@ -1209,6 +1223,62 @@ footer{border-top:1px solid rgba(201,169,110,.07);padding:28px 56px;display:flex
   <p style="text-align:center;margin-top:40px;font-family:'DM Mono',monospace;font-size:.54rem;letter-spacing:.16em;color:var(--muted);" data-en="All prices excl. VAT · Revisions included · 48h turnaround" data-de="Alle Preise exkl. MwSt. · Revisionen inklusive · 48h Lieferzeit">All prices excl. VAT · Revisions included · 48h turnaround</p>
 </section>
 
+<!-- ══ FAQ ══ -->
+<section id="faq">
+  <div class="faq-inner">
+    <div class="faq-l rv-l">
+      <div class="faq-ey" data-en="/ FAQ" data-de="/ FAQ">/ FAQ</div>
+      <h2 class="faq-title" data-en="GOT<br>QUESTIONS?<br><em>I GOT</em><br>ANSWERS." data-de="FRAGEN?<br>ICH HAB<br><em>ANTWORTEN.</em>">GOT<br>QUESTIONS?<br><em>I GOT</em><br>ANSWERS.</h2>
+    </div>
+    <div class="faq-r rv-r">
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            <span data-en="How fast do I get my video?" data-de="Wie schnell bekomme ich mein Video?">How fast do I get my video?</span>
+            <svg class="faq-arr" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-a"><p data-en="Most projects are delivered within 48 hours. Complex long-form edits may take up to 72 hours. You'll always get a realistic timeline before I start." data-de="Die meisten Projekte werden innerhalb von 48 Stunden geliefert. Komplexe Long-Form Schnitte können bis zu 72 Stunden dauern. Du bekommst immer eine realistische Timeline bevor ich starte.">Most projects are delivered within 48 hours. Complex long-form edits may take up to 72 hours. You'll always get a realistic timeline before I start.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            <span data-en="How many revisions do I get?" data-de="Wie viele Revisionen bekomme ich?">How many revisions do I get?</span>
+            <svg class="faq-arr" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-a"><p data-en="Unlimited. I don't stop until you're 100% happy with the result. No extra charges, no limits — it's your video." data-de="Unbegrenzt. Ich höre nicht auf bis du 100% zufrieden bist. Keine Extrakosten, keine Limits — es ist dein Video.">Unlimited. I don't stop until you're 100% happy with the result. No extra charges, no limits — it's your video.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            <span data-en="What format do I send my footage in?" data-de="In welchem Format schicke ich mein Material?">What format do I send my footage in?</span>
+            <svg class="faq-arr" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-a"><p data-en="Any format works — MP4, MOV, MKV, even iPhone footage. You can send files via Google Drive, WeTransfer or any link. I handle the rest." data-de="Jedes Format funktioniert — MP4, MOV, MKV, sogar iPhone-Aufnahmen. Du kannst Dateien via Google Drive, WeTransfer oder einem beliebigen Link schicken. Den Rest erledige ich.">Any format works — MP4, MOV, MKV, even iPhone footage. You can send files via Google Drive, WeTransfer or any link. I handle the rest.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            <span data-en="Do you work with creators outside Germany?" data-de="Arbeitest du auch mit Creators außerhalb Deutschlands?">Do you work with creators outside Germany?</span>
+            <svg class="faq-arr" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-a"><p data-en="100%. I work with clients worldwide. Everything happens online — footage in, finished video out. Timezone doesn't matter." data-de="100%. Ich arbeite mit Kunden weltweit. Alles läuft online — Material rein, fertiges Video raus. Zeitzone spielt keine Rolle.">100%. I work with clients worldwide. Everything happens online — footage in, finished video out. Timezone doesn't matter.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            <span data-en="What if I don't like the result at all?" data-de="Was wenn mir das Ergebnis gar nicht gefällt?">What if I don't like the result at all?</span>
+            <svg class="faq-arr" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-a"><p data-en="Then we fix it — simple as that. Tell me exactly what's wrong and I'll redo it until it's right. Your satisfaction is the only metric that matters." data-de="Dann fixen wir es — so einfach ist das. Sag mir genau was nicht stimmt und ich mache es neu bis es passt. Deine Zufriedenheit ist die einzige Metrik die zählt.">Then we fix it — simple as that. Tell me exactly what's wrong and I'll redo it until it's right. Your satisfaction is the only metric that matters.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            <span data-en="Can I get a sample edit before committing?" data-de="Kann ich einen Test-Schnitt bekommen?">Can I get a sample edit before committing?</span>
+            <svg class="faq-arr" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-a"><p data-en="Yes — reach out and we'll talk. For longer-term collaborations I'm open to doing a short trial edit so you can see my style before we commit to anything." data-de="Ja — meld dich einfach. Für längere Zusammenarbeit bin ich offen für einen kurzen Test-Schnitt damit du meinen Stil siehst bevor wir uns auf etwas festlegen.">Yes — reach out and we'll talk. For longer-term collaborations I'm open to doing a short trial edit so you can see my style before we commit to anything.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ══ CONTACT ══ -->
 <section id="contact">
   <div class="ct-grid stg">
@@ -1611,6 +1681,14 @@ function toggleMenu(){
     if(dx<-60&&menu.classList.contains('open'))toggleMenu(); // swipe left = close
   },{passive:true});
 })();
+
+/* ── FAQ ACCORDION ── */
+function toggleFaq(btn){
+  const item=btn.closest('.faq-item');
+  const isOpen=item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(i=>i.classList.remove('open'));
+  if(!isOpen)item.classList.add('open');
+}
 
 /* ── FILM GRAIN ── */
 (function(){
