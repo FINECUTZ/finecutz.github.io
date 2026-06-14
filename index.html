@@ -287,6 +287,10 @@ body{background:var(--black);color:var(--white);font-family:'Syne',sans-serif;cu
   transition:padding-left .3s;
 }
 .proc-item:hover{padding-left:6px;}
+.proc-list .proc-item:nth-child(1){transition-delay:.05s;}
+.proc-list .proc-item:nth-child(2){transition-delay:.15s;}
+.proc-list .proc-item:nth-child(3){transition-delay:.25s;}
+.proc-list .proc-item:nth-child(4){transition-delay:.35s;}
 .proc-num{font-family:'DM Mono',monospace;font-size:.56rem;letter-spacing:.14em;color:var(--gold3);flex-shrink:0;padding-top:2px;}
 .proc-name{font-family:'Bebas Neue',sans-serif;font-size:2rem;letter-spacing:.04em;margin-bottom:10px;}
 .proc-desc{font-size:1.1rem;color:rgba(242,237,230,.42);line-height:1.75;}
@@ -821,14 +825,14 @@ footer{border-top:1px solid rgba(201,169,110,.07);padding:28px 56px;display:flex
 
   <!-- LEFT: clean title -->
   <div class="hl">
-    <div class="h-tag" data-en="Premium Video Editor — Available Worldwide" data-de="Premium Video Editor — Weltweit verfügbar">Premium Video Editor — Available Worldwide</div>
-    <h1 class="h1" id="h1">
+    <div class="h-tag rv" data-en="Premium Video Editor — Available Worldwide" data-de="Premium Video Editor — Weltweit verfügbar">Premium Video Editor — Available Worldwide</div>
+    <h1 class="h1 rv" id="h1">
       <span class="h1-main" id="h1-l1">FRAMES</span>
       <span class="h1-stroke" id="h1-l2">THAT</span>
       <span class="h1-main" id="h1-l3">SELL<span class="h1-gld">.</span></span>
     </h1>
-    <p class="h-desc" data-en="I edit for you — not for me. Tell me what you want and I'll make it happen. Your vision, cinematic quality." data-de="Ich schneide für dich — nicht für mich. Sag mir was du willst und ich mach es möglich. Deine Vision, kinematische Qualität.">I edit for you — not for me. Tell me what you want and I'll make it happen. Your vision, cinematic quality.</p>
-    <div class="h-btns">
+    <p class="h-desc rv" data-en="I edit for you — not for me. Tell me what you want and I'll make it happen. Your vision, cinematic quality." data-de="Ich schneide für dich — nicht für mich. Sag mir was du willst und ich mach es möglich. Deine Vision, kinematische Qualität.">I edit for you — not for me. Tell me what you want and I'll make it happen. Your vision, cinematic quality.</p>
+    <div class="h-btns rv">
       <a href="#portfolio" class="btn-g"><span data-en="▶ View Work" data-de="▶ Arbeiten ansehen">▶ View Work</span></a>
       <a href="#contact" class="btn-t" data-en="Let's talk →" data-de="Kontakt aufnehmen →">Let's talk →</a>
     </div>
@@ -940,19 +944,19 @@ footer{border-top:1px solid rgba(201,169,110,.07);padding:28px 56px;display:flex
       <p data-en="You tell me what you want. I tell you what's possible. Together we make it perfect. Every time." data-de="Du sagst mir was du willst. Ich sage dir was möglich ist. Zusammen machen wir es perfekt. Jedes Mal.">You tell me what you want. I tell you what's possible. Together we make it perfect. Every time.</p>
     </div>
     <div class="proc-list">
-      <div class="proc-item">
+      <div class="proc-item rv">
         <span class="proc-num">01</span>
         <div><div class="proc-name" data-en="YOU TALK, I LISTEN" data-de="DU REDEST, ICH HÖRE ZU">YOU TALK, I LISTEN</div><p class="proc-desc" data-en="Tell me your style, your goal, your audience. No templates, no assumptions. I start from your vision." data-de="Sag mir deinen Stil, dein Ziel, deine Zielgruppe. Keine Vorlagen, keine Annahmen. Ich starte von deiner Vision.">Tell me your style, your goal, your audience. No templates, no assumptions. I start from your vision.</p></div>
       </div>
-      <div class="proc-item">
+      <div class="proc-item rv">
         <span class="proc-num">02</span>
         <div><div class="proc-name" data-en="I BUILD THE STRATEGY" data-de="ICH BAUE DIE STRATEGIE">I BUILD THE STRATEGY</div><p class="proc-desc" data-en="Before I touch the timeline, I map out pacing, tone and structure so there are zero surprises." data-de="Bevor ich die Timeline anrühre, plane ich Tempo, Ton und Struktur — keine Überraschungen.">Before I touch the timeline, I map out pacing, tone and structure so there are zero surprises.</p></div>
       </div>
-      <div class="proc-item">
+      <div class="proc-item rv">
         <span class="proc-num">03</span>
         <div><div class="proc-name" data-en="I DELIVER FAST" data-de="ICH LIEFERE SCHNELL">I DELIVER FAST</div><p class="proc-desc" data-en="Full edit, color grade, sound design. Most projects are back in your inbox within 48 hours." data-de="Voller Schnitt, Colorgrade, Sound-Design. Die meisten Projekte sind innerhalb von 48 Stunden fertig.">Full edit, color grade, sound design. Most projects are back in your inbox within 48 hours.</p></div>
       </div>
-      <div class="proc-item">
+      <div class="proc-item rv">
         <span class="proc-num">04</span>
         <div><div class="proc-name" data-en="WE PERFECT IT TOGETHER" data-de="WIR PERFEKTIONIEREN GEMEINSAM">WE PERFECT IT TOGETHER</div><p class="proc-desc" data-en="Revisions until you love it. No limits. It's your video — it has to be right." data-de="Revisionen bis du es liebst. Keine Limits. Es ist dein Video — es muss stimmen.">Revisions until you love it. No limits. It's your video — it has to be right.</p></div>
       </div>
@@ -1004,7 +1008,7 @@ footer{border-top:1px solid rgba(201,169,110,.07);padding:28px 56px;display:flex
 
 <!-- ══ VALUES ══ -->
 <section id="values">
-  <div class="val-inner">
+  <div class="val-inner stg">
     <div class="val">
       <span class="val-icon">⚡</span>
       <div class="val-head" data-en="48h" data-de="48h">48h</div>
@@ -1202,7 +1206,7 @@ footer{border-top:1px solid rgba(201,169,110,.07);padding:28px 56px;display:flex
 
 <!-- ══ CONTACT ══ -->
 <section id="contact">
-  <div class="ct-grid">
+  <div class="ct-grid stg">
     <div class="rv-l">
       <div class="ct-ey" data-en="/ Let's Work Together" data-de="/ Lass uns zusammenarbeiten">/ Let's Work Together</div>
       <h2 class="ct-title" data-en="TELL ME<br>WHAT YOU<br><em>NEED.</em>" data-de="SAG MIR<br>WAS DU<br><em>BRAUCHST.</em>">TELL ME<br>WHAT YOU<br><em>NEED.</em></h2>
