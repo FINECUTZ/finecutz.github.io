@@ -1577,12 +1577,20 @@ ss.addEventListener('mousemove',e=>{if(!sd)return;e.preventDefault();ss.scrollLe
 /* ── CONTACT FORM ── */
 function handleForm(e){
   e.preventDefault();
-  const btn=e.target.querySelector('.fbtn');
+  const form=e.target;
+  const btn=form.querySelector('.fbtn');
   btn.querySelector('span').textContent='Sending...';btn.style.opacity='.6';
-  setTimeout(()=>{
-    document.getElementById('ctf').style.opacity='0';
-    setTimeout(()=>{document.getElementById('ctf').style.display='none';document.getElementById('fok').style.display='block';},350);
-  },1100);
+  const data=new FormData(form);
+  fetch('https://formspree.io/f/xdavybej',{method:'POST',body:data,headers:{'Accept':'application/json'}})
+    .then(r=>{
+      if(r.ok){
+        form.style.opacity='0';
+        setTimeout(()=>{form.style.display='none';document.getElementById('fok').style.display='block';},350);
+      } else {
+        btn.querySelector('span').textContent='Error — try again';btn.style.opacity='1';
+      }
+    })
+    .catch(()=>{btn.querySelector('span').textContent='Error — try again';btn.style.opacity='1';});
 }
 
 /* ── MOBILE TIMECODE ── */
