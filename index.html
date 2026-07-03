@@ -173,6 +173,8 @@ img,svg{display:block;}
 /* 2-column hero: content left, promo video right */
 .hero-2{max-width:min(1900px,96vw);display:grid;grid-template-columns:0.92fr 1.7fr;gap:clamp(50px,9vw,150px);align-items:start;text-align:left;}
 .hero-2 .hero-l{padding-top:0;}
+/* PC only: hero ~10% lower (mobile stays untouched) */
+@media (min-width:769px){ #hero{padding-top:clamp(120px,16vh,210px);} }
 .hero-2 .hero-l{text-align:left;}
 .hero-2 .hero-l .hero-btns,.hero-2 .hero-l .hero-stats,.hero-2 .hero-l .tagline{justify-content:flex-start;}
 /* ~50% larger hero content */
