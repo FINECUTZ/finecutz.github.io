@@ -138,6 +138,8 @@ img,svg{display:block;}
 .lang{display:flex;border:1px solid rgba(255,255,255,.4);border-radius:30px;overflow:hidden;}
 .lang button{font-family:'Space Mono',monospace;font-size:.58rem;letter-spacing:.1em;padding:7px 11px;border:none;cursor:pointer;background:transparent;color:var(--cream);transition:.25s;}
 .lang button.on{background:var(--gold);color:var(--ink);font-weight:700;}
+.mob-lang{margin-top:26px;display:inline-flex;border:1px solid rgba(255,255,255,.25);border-radius:30px;overflow:hidden;}
+.mob-lang button{padding:10px 20px;font-size:.72rem;}
 .cta{font-family:'Space Mono',monospace;font-weight:700;font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;
   background:var(--grad);color:#fff;padding:11px 22px;border-radius:40px;transition:.25s;box-shadow:0 6px 22px rgba(54,208,255,.35);white-space:nowrap;}
 .cta:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(54,208,255,.55);}
@@ -375,7 +377,7 @@ footer .flinks a{font-family:'Space Mono',monospace;font-size:.58rem;letter-spac
 footer .flinks a:hover{color:#fff;border-color:#fff;}
 /* Impressum overlay (CSS-only via :target) */
 .modal{position:fixed;inset:0;z-index:10000;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(3,7,16,.86);}
-.modal:target{display:flex;}
+.modal.open{display:flex;}
 .modal-box{position:relative;max-width:560px;width:100%;max-height:86vh;overflow:auto;background:#0a1426;border:1px solid rgba(255,255,255,.14);border-radius:20px;padding:clamp(26px,5vw,44px);box-shadow:0 40px 100px rgba(0,0,0,.6);}
 .modal-x{position:absolute;top:16px;right:20px;color:var(--mut);text-decoration:none;font-size:1.3rem;line-height:1;transition:.2s;}
 .modal-x:hover{color:#fff;}
@@ -467,8 +469,8 @@ body.world-on footer{background:rgba(5,9,18,.8)!important;}
   </ul>
   <div class="nav-r">
     <div class="lang">
-      <button id="lEN" class="on" onclick="setLang('en')">EN</button>
-      <button id="lDE" onclick="setLang('de')">DE</button>
+      <button class="langbtn" data-lang="en" onclick="setLang('en')">EN</button>
+      <button class="langbtn on" data-lang="de" onclick="setLang('de')">DE</button>
     </div>
     <div class="ham" id="ham" onclick="toggleMenu()"><span></span><span></span><span></span></div>
   </div>
@@ -477,11 +479,15 @@ body.world-on footer{background:rgba(5,9,18,.8)!important;}
 <!-- mobile menu -->
 <div class="mob" id="mob">
   <button class="close" onclick="toggleMenu()">✕ CLOSE</button>
-  <a href="#work" onclick="toggleMenu()" data-en="Work" data-de="Arbeit">Work</a>
-  <a href="#services" onclick="toggleMenu()" data-en="Services" data-de="Leistungen">Services</a>
-  <a href="#about" onclick="toggleMenu()" data-en="About" data-de="Über mich">About</a>
-  <a href="#pricing" onclick="toggleMenu()" data-en="Pricing" data-de="Preise">Pricing</a>
-  <a href="#contact" class="cta" onclick="toggleMenu()" data-en="Book a Call" data-de="Termin buchen">Book a Call</a>
+  <a href="#about" onclick="toggleMenu()" data-en="About" data-de="Über mich">Über mich</a>
+  <a href="#work" onclick="toggleMenu()" data-en="Work" data-de="Arbeit">Arbeit</a>
+  <a href="#reels" onclick="toggleMenu()" data-en="Reels" data-de="Reels">Reels</a>
+  <a href="#pricing" onclick="toggleMenu()" data-en="Pricing" data-de="Preise">Preise</a>
+  <a href="#contact" class="cta" onclick="toggleMenu()" data-en="Book a Call" data-de="Erstgespräch">Erstgespräch</a>
+  <div class="lang mob-lang">
+    <button class="langbtn" data-lang="en" onclick="setLang('en')">EN</button>
+    <button class="langbtn on" data-lang="de" onclick="setLang('de')">DE</button>
+  </div>
 </div>
 
 <!-- ════ HERO ════ -->
@@ -683,16 +689,16 @@ body.world-on footer{background:rgba(5,9,18,.8)!important;}
     <a href="https://tiktok.com/@finecutz.ofc" target="_blank" rel="noopener" aria-label="TikTok">♪</a>
   </div>
   <div class="copy">© 2026 FINECUTZ · PREMIUM VIDEO EDITING</div>
-  <div class="flinks"><a href="#impressum">Impressum</a><a href="#datenschutz">Datenschutz</a><a href="#agb">AGB</a></div>
+  <div class="flinks"><a href="#" onclick="openModal('impressum');return false;">Impressum</a><a href="#" onclick="openModal('datenschutz');return false;">Datenschutz</a><a href="#" onclick="openModal('agb');return false;">AGB</a></div>
 </footer>
 
 <!-- ════ IMPRESSUM (Overlay) ════ -->
 <div id="impressum" class="modal">
   <div class="modal-box">
-    <a href="#" class="modal-x" aria-label="Schließen">✕</a>
+    <a href="#" class="modal-x" aria-label="Schließen" onclick="closeModal();return false;">✕</a>
     <h3>Impressum</h3>
     <p><b>FINECUTZ</b><br>Stefan Vasiljevic<br>Zürcherstrasse 52<br>8854 Siebnen<br>Schweiz</p>
-    <p><b data-en="Contact" data-de="Kontakt">Kontakt</b><br>E-Mail: finecutz.ofc@gmail.com<br>Telefon: 076 331 34 79<br>Instagram / TikTok: @finecutz.ofc</p>
+    <p><b data-en="Contact" data-de="Kontakt">Kontakt</b><br>E-Mail: finecutz.ofc@gmail.com<br>Telefon: +41763313479<br>Instagram / TikTok: @finecutz.ofc</p>
     <p data-en="Responsible for the content: Stefan Vasiljevic" data-de="Verantwortlich für den Inhalt: Stefan Vasiljevic">Verantwortlich für den Inhalt: Stefan Vasiljevic</p>
   </div>
 </div>
@@ -700,7 +706,7 @@ body.world-on footer{background:rgba(5,9,18,.8)!important;}
 <!-- ════ DATENSCHUTZ (Overlay) ════ -->
 <div id="datenschutz" class="modal">
   <div class="modal-box">
-    <a href="#" class="modal-x" aria-label="Schließen">✕</a>
+    <a href="#" class="modal-x" aria-label="Schließen" onclick="closeModal();return false;">✕</a>
     <h3>Datenschutzerklärung</h3>
     <p><b>Verantwortlicher:</b> Stefan Vasiljevic, Zürcherstrasse 52, 8854 Siebnen, Schweiz · finecutz.ofc@gmail.com</p>
     <p><b>Kontaktformular</b><br>Wenn du das Kontaktformular nutzt, werden dein Name, deine E-Mail-Adresse und deine Nachricht verarbeitet und per E-Mail an uns übermittelt. Wir nutzen diese Angaben ausschliesslich zur Bearbeitung deiner Anfrage und geben sie nicht an Dritte weiter.</p>
@@ -715,7 +721,7 @@ body.world-on footer{background:rgba(5,9,18,.8)!important;}
 <!-- ════ AGB (Overlay) ════ -->
 <div id="agb" class="modal">
   <div class="modal-box">
-    <a href="#" class="modal-x" aria-label="Schließen">✕</a>
+    <a href="#" class="modal-x" aria-label="Schließen" onclick="closeModal();return false;">✕</a>
     <h3>AGB</h3>
     <p><b>1. Leistungen</b><br>FINECUTZ (Stefan Vasiljevic) erbringt Video-Editing-Dienstleistungen nach individueller Absprache. Der Umfang ergibt sich aus der jeweiligen Bestellung bzw. dem gewählten Paket.</p>
     <p><b>2. Preise &amp; Zahlung</b><br>Es gelten die auf dieser Website angegebenen Preise. Zahlung nach Vereinbarung (z. B. bei Projektstart bzw. vor Auslieferung).</p>
@@ -775,6 +781,12 @@ window.addEventListener('scroll',()=>{
 /* ════ MOBILE MENU ════ */
 function toggleMenu(){ document.getElementById('mob').classList.toggle('open'); }
 
+/* ════ LEGAL MODALS (no scroll-jump) ════ */
+function openModal(id){ var m=document.getElementById(id); if(m){ m.classList.add('open'); document.body.style.overflow='hidden'; } }
+function closeModal(){ document.querySelectorAll('.modal.open').forEach(function(m){ m.classList.remove('open'); }); document.body.style.overflow=''; }
+document.querySelectorAll('.modal').forEach(function(m){ m.addEventListener('click',function(e){ if(e.target===m) closeModal(); }); });
+document.addEventListener('keydown',function(e){ if(e.key==='Escape') closeModal(); });
+
 /* ════ ROTATING HERO PHRASE ════ */
 const phrasesEN=['FRAMES THAT SELL.','CUTS THAT CONVERT.','EDITS THAT WIN.','STORIES THAT STICK.'];
 const phrasesDE=['FRAMES DIE VERKAUFEN.','CUTS DIE CONVERTEN.','EDITS DIE GEWINNEN.','STORIES DIE BLEIBEN.'];
@@ -808,13 +820,15 @@ setTimeout(revealCheck,300); setTimeout(revealCheck,1200);
 function setLang(lang){
   curLang=lang;
   document.documentElement.lang=lang;
-  document.getElementById('lEN').classList.toggle('on',lang==='en');
-  document.getElementById('lDE').classList.toggle('on',lang==='de');
+  document.querySelectorAll('.langbtn').forEach(b=>b.classList.toggle('on', b.dataset.lang===lang));
   document.querySelectorAll('[data-en]').forEach(el=>{
     const v=el.getAttribute('data-'+lang); if(v!=null) el.innerHTML=v;
   });
-  swap.textContent=(lang==='de'?phrasesDE:phrasesEN)[pi];
+  if(swap) swap.textContent=(lang==='de'?phrasesDE:phrasesEN)[pi];
 }
+/* default language = German */
+curLang='de';
+setLang('de');
 
 /* ════ CONTACT FORM (Formspree) ════ */
 function handleForm(e){
@@ -902,7 +916,7 @@ if (canvas) {
   }
 
   // ── SNOW / SPARKLE PARTICLES ──
-  const PN = isMobile ? 450 : 1400, spanX = 60, spanY = 40, spanZ = 90;
+  const PN = isMobile ? 450 : 1000, spanX = 60, spanY = 40, spanZ = 90;
   const pPos = new Float32Array(PN*3);
   for (let i=0;i<PN;i++){
     pPos[i*3]   = (Math.random()-0.5)*spanX;
@@ -915,11 +929,14 @@ if (canvas) {
   scene.add(snow);
 
   let baseX = 1.8;
+  const MAXDIM = isMobile ? 1280 : 1920;      // cap render resolution (helps 4K/ultrawide/curved monitors)
   function resize(){
     const w = window.innerWidth, h = window.innerHeight;
+    const dpr = Math.min(window.devicePixelRatio, isMobile ? 1 : 1.1);
+    const scale = Math.min(1, MAXDIM / Math.max(w, h));
+    renderer.setPixelRatio(dpr * scale);
     renderer.setSize(w, h, false);
     camera.aspect = w/h; camera.updateProjectionMatrix();
-    baseX = w < 900 ? 0 : 1.8;
   }
   resize();
   window.addEventListener('resize', resize);
