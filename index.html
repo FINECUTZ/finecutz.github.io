@@ -6,9 +6,7 @@
 <meta name="darkreader-lock"/>
 <title>FINECUTZ Premium Video Editor</title>
 <meta name="description" content="FINECUTZ premium video editing. Short form, long form, any platform. Your vision, cinematic quality, 48h turnaround."/>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Outfit:wght@300;400;600;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="fonts.css"><!-- self-hosted fonts (no Google transfer) -->
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
 :root{
@@ -372,7 +370,7 @@ footer .flogo .dot{color:var(--pink);}
 .fsoc a{width:46px;height:46px;border-radius:50%;border:1px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;color:#fff;transition:.25s;}
 .fsoc a:hover{background:var(--grad);border-color:transparent;transform:translateY(-3px);}
 footer .copy{font-family:'Space Mono',monospace;font-size:.56rem;letter-spacing:.14em;color:var(--mut);text-transform:uppercase;}
-footer .flinks{margin-top:12px;}
+footer .flinks{margin-top:14px;display:flex;gap:22px;justify-content:center;flex-wrap:wrap;}
 footer .flinks a{font-family:'Space Mono',monospace;font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;color:var(--mut);text-decoration:none;border-bottom:1px solid rgba(255,255,255,.2);padding-bottom:2px;transition:.25s;}
 footer .flinks a:hover{color:#fff;border-color:#fff;}
 /* Impressum overlay (CSS-only via :target) */
@@ -685,7 +683,7 @@ body.world-on footer{background:rgba(5,9,18,.8)!important;}
     <a href="https://tiktok.com/@finecutz.ofc" target="_blank" rel="noopener" aria-label="TikTok">♪</a>
   </div>
   <div class="copy">© 2026 FINECUTZ · PREMIUM VIDEO EDITING</div>
-  <div class="flinks"><a href="#impressum">Impressum</a></div>
+  <div class="flinks"><a href="#impressum">Impressum</a><a href="#datenschutz">Datenschutz</a><a href="#agb">AGB</a></div>
 </footer>
 
 <!-- ════ IMPRESSUM (Overlay) ════ -->
@@ -693,12 +691,38 @@ body.world-on footer{background:rgba(5,9,18,.8)!important;}
   <div class="modal-box">
     <a href="#" class="modal-x" aria-label="Schließen">✕</a>
     <h3>Impressum</h3>
-    <p class="imp-note" data-en="Legal notice — please replace the placeholders below with your real details." data-de="Angaben gemäß gesetzlicher Pflicht — bitte die Platzhalter unten durch echte Daten ersetzen.">Angaben gemäß gesetzlicher Pflicht — bitte die Platzhalter unten durch echte Daten ersetzen.</p>
-    <p><b>[Vollständiger Name]</b><br>[Straße &amp; Hausnummer]<br>[PLZ &amp; Ort]<br>[Land]</p>
-    <p><b data-en="Contact" data-de="Kontakt">Kontakt</b><br>E-Mail: FINECUTZ.OFC@gmail.com<br>Instagram / TikTok: @finecutz.ofc</p>
-    <p data-en="Responsible for content:" data-de="Verantwortlich für den Inhalt:">Verantwortlich für den Inhalt:</p>
-    <p>[Vollständiger Name], [Anschrift wie oben]</p>
-    <p class="imp-small" data-en="Placeholder text — no legal advice. Adjust to your country's requirements (e.g. Impressumspflicht §5 TMG / ECG)." data-de="Platzhalter — keine Rechtsberatung. An die Anforderungen deines Landes anpassen (z. B. §5 TMG / §5 ECG).">Platzhalter — keine Rechtsberatung. An die Anforderungen deines Landes anpassen (z. B. §5 TMG / §5 ECG).</p>
+    <p><b>FINECUTZ</b><br>Stefan Vasiljevic<br>Zürcherstrasse 52<br>8854 Siebnen<br>Schweiz</p>
+    <p><b data-en="Contact" data-de="Kontakt">Kontakt</b><br>E-Mail: finecutz.ofc@gmail.com<br>Telefon: 076 331 34 79<br>Instagram / TikTok: @finecutz.ofc</p>
+    <p data-en="Responsible for the content: Stefan Vasiljevic" data-de="Verantwortlich für den Inhalt: Stefan Vasiljevic">Verantwortlich für den Inhalt: Stefan Vasiljevic</p>
+  </div>
+</div>
+
+<!-- ════ DATENSCHUTZ (Overlay) ════ -->
+<div id="datenschutz" class="modal">
+  <div class="modal-box">
+    <a href="#" class="modal-x" aria-label="Schließen">✕</a>
+    <h3>Datenschutzerklärung</h3>
+    <p><b>Verantwortlicher:</b> Stefan Vasiljevic, Zürcherstrasse 52, 8854 Siebnen, Schweiz · finecutz.ofc@gmail.com</p>
+    <p><b>Kontaktformular</b><br>Wenn du das Kontaktformular nutzt, werden dein Name, deine E-Mail-Adresse und deine Nachricht verarbeitet und per E-Mail an uns übermittelt. Wir nutzen diese Angaben ausschliesslich zur Bearbeitung deiner Anfrage und geben sie nicht an Dritte weiter.</p>
+    <p><b>Hosting &amp; Server-Logs</b><br>Diese Website wird über GitHub Pages (GitHub Inc., USA) gehostet. Beim Aufruf können technisch notwendige Daten (z. B. IP-Adresse, Datum/Uhrzeit, Browsertyp) in Server-Logs verarbeitet werden.</p>
+    <p><b>Schriften</b><br>Alle Schriftarten werden lokal von diesem Server geladen. Es findet keine Übertragung an Google oder andere Dritte statt.</p>
+    <p><b>Cookies &amp; Tracking</b><br>Diese Website verwendet keine Cookies und keine Analyse- oder Tracking-Dienste.</p>
+    <p><b>Deine Rechte</b><br>Du hast das Recht auf Auskunft, Berichtigung und Löschung deiner Daten. Kontaktiere uns dazu einfach per E-Mail.</p>
+    <p class="imp-small">Es gilt das schweizerische Datenschutzgesetz (revDSG). Stand: 2026. Dies ist keine Rechtsberatung.</p>
+  </div>
+</div>
+
+<!-- ════ AGB (Overlay) ════ -->
+<div id="agb" class="modal">
+  <div class="modal-box">
+    <a href="#" class="modal-x" aria-label="Schließen">✕</a>
+    <h3>AGB</h3>
+    <p><b>1. Leistungen</b><br>FINECUTZ (Stefan Vasiljevic) erbringt Video-Editing-Dienstleistungen nach individueller Absprache. Der Umfang ergibt sich aus der jeweiligen Bestellung bzw. dem gewählten Paket.</p>
+    <p><b>2. Preise &amp; Zahlung</b><br>Es gelten die auf dieser Website angegebenen Preise. Zahlung nach Vereinbarung (z. B. bei Projektstart bzw. vor Auslieferung).</p>
+    <p><b>3. Revisionen &amp; Lieferung</b><br>Revisionen sind gemäss gewähltem Paket enthalten. Übliche Lieferzeit: ca. 48 Stunden, abhängig vom Projektumfang.</p>
+    <p><b>4. Nutzungsrechte</b><br>Der Kunde stellt das Rohmaterial bereit und garantiert, über die nötigen Rechte zu verfügen. Nach vollständiger Bezahlung erhält der Kunde die Nutzungsrechte am fertigen Video.</p>
+    <p><b>5. Haftung</b><br>Es wird keine Haftung für Inhalte des vom Kunden gelieferten Materials übernommen.</p>
+    <p class="imp-small">Vereinfachte AGB als Ausgangsbasis. Stand: 2026. Keine Rechtsberatung.</p>
   </div>
 </div>
 
