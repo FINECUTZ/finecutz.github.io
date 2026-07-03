@@ -158,7 +158,7 @@ img,svg{display:block;}
    HERO
 ════════════════════════════════════════ */
 #hero{position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:flex-start;overflow:hidden;
-  padding:clamp(64px,7vh,92px) clamp(18px,4vw,54px) 60px;
+  padding:clamp(46px,5vh,72px) clamp(18px,4vw,54px) 60px;
   background:linear-gradient(180deg,#0c1a30 0%,#163a5e 26%,#2f9fd6 50%,#5e8fd6 78%,#7fb3e0 100%);}
 .hero-sun{position:absolute;left:50%;bottom:-6%;width:70vh;height:70vh;transform:translateX(-50%);border-radius:50%;
   background:radial-gradient(circle,#f0f8ff 0%,#cfe6fb 32%,#5e8fd6 58%,rgba(255,138,61,0) 70%);pointer-events:none;will-change:transform;}
@@ -372,6 +372,20 @@ footer .flogo .dot{color:var(--pink);}
 .fsoc a{width:46px;height:46px;border-radius:50%;border:1px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;color:#fff;transition:.25s;}
 .fsoc a:hover{background:var(--grad);border-color:transparent;transform:translateY(-3px);}
 footer .copy{font-family:'Space Mono',monospace;font-size:.56rem;letter-spacing:.14em;color:var(--mut);text-transform:uppercase;}
+footer .flinks{margin-top:12px;}
+footer .flinks a{font-family:'Space Mono',monospace;font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;color:var(--mut);text-decoration:none;border-bottom:1px solid rgba(255,255,255,.2);padding-bottom:2px;transition:.25s;}
+footer .flinks a:hover{color:#fff;border-color:#fff;}
+/* Impressum overlay (CSS-only via :target) */
+.modal{position:fixed;inset:0;z-index:10000;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(3,7,16,.86);}
+.modal:target{display:flex;}
+.modal-box{position:relative;max-width:560px;width:100%;max-height:86vh;overflow:auto;background:#0a1426;border:1px solid rgba(255,255,255,.14);border-radius:20px;padding:clamp(26px,5vw,44px);box-shadow:0 40px 100px rgba(0,0,0,.6);}
+.modal-x{position:absolute;top:16px;right:20px;color:var(--mut);text-decoration:none;font-size:1.3rem;line-height:1;transition:.2s;}
+.modal-x:hover{color:#fff;}
+.modal-box h3{font-family:'Anton',sans-serif;font-size:2rem;text-transform:uppercase;color:#fff;margin-bottom:18px;}
+.modal-box p{font-size:.9rem;line-height:1.75;color:#cdddec;margin-bottom:14px;}
+.modal-box p b{color:#fff;}
+.modal-box .imp-note{color:var(--pink);font-size:.82rem;}
+.modal-box .imp-small{font-size:.72rem;color:var(--mut);margin-top:6px;}
 
 /* ════════════════════════════════════════
    RESPONSIVE
@@ -393,6 +407,26 @@ footer .copy{font-family:'Space Mono',monospace;font-size:.56rem;letter-spacing:
   .work-grid{grid-template-columns:1fr;}
   .tile.big,.tile.wide{grid-column:span 1;}
   .hud{font-size:.5rem;}
+}
+/* ── mobile / phone layout ── */
+@media (max-width:768px){
+  #hero{min-height:auto;padding:96px clamp(16px,5vw,26px) 46px;}
+  .hero-2{grid-template-columns:1fr;gap:24px;max-width:100%;}
+  .hero-2 .hero-l{padding-top:0;}
+  .hero-2 .hero-l h2{font-size:clamp(2.4rem,11vw,3.6rem);}
+  .hero-2 .hero-l .hero-sub{font-size:1rem;max-width:100%;}
+  .hero-btns{flex-wrap:wrap;}
+  .video-rows{grid-template-columns:1fr;gap:20px;}
+  .reel-grid{grid-template-columns:repeat(2,1fr);}
+  section{padding:64px clamp(16px,5vw,22px)!important;}
+  .wrap{padding:64px clamp(16px,5vw,18px)!important;}
+  .h-sec{font-size:clamp(2.2rem,9vw,3.6rem)!important;}
+  .contact-grid{gap:28px;}
+}
+@media (max-width:460px){
+  .reel-grid{grid-template-columns:1fr;}
+  .hero-2 .hero-l h2{font-size:clamp(2.2rem,12vw,3rem);}
+  footer .flogo{font-size:2rem;}
 }
 @media (prefers-reduced-motion: reduce){
   .cam{animation:none;}
@@ -650,8 +684,23 @@ body.world-on footer{background:rgba(5,9,18,.8)!important;}
     <a href="https://instagram.com/finecutz.ofc" target="_blank" rel="noopener" aria-label="Instagram">📷</a>
     <a href="https://tiktok.com/@finecutz.ofc" target="_blank" rel="noopener" aria-label="TikTok">♪</a>
   </div>
-  <div class="copy">© 2026 FINECUTZ · PREMIUM VIDEO EDITING · MADE WITH ❤</div>
+  <div class="copy">© 2026 FINECUTZ · PREMIUM VIDEO EDITING</div>
+  <div class="flinks"><a href="#impressum">Impressum</a></div>
 </footer>
+
+<!-- ════ IMPRESSUM (Overlay) ════ -->
+<div id="impressum" class="modal">
+  <div class="modal-box">
+    <a href="#" class="modal-x" aria-label="Schließen">✕</a>
+    <h3>Impressum</h3>
+    <p class="imp-note" data-en="Legal notice — please replace the placeholders below with your real details." data-de="Angaben gemäß gesetzlicher Pflicht — bitte die Platzhalter unten durch echte Daten ersetzen.">Angaben gemäß gesetzlicher Pflicht — bitte die Platzhalter unten durch echte Daten ersetzen.</p>
+    <p><b>[Vollständiger Name]</b><br>[Straße &amp; Hausnummer]<br>[PLZ &amp; Ort]<br>[Land]</p>
+    <p><b data-en="Contact" data-de="Kontakt">Kontakt</b><br>E-Mail: FINECUTZ.OFC@gmail.com<br>Instagram / TikTok: @finecutz.ofc</p>
+    <p data-en="Responsible for content:" data-de="Verantwortlich für den Inhalt:">Verantwortlich für den Inhalt:</p>
+    <p>[Vollständiger Name], [Anschrift wie oben]</p>
+    <p class="imp-small" data-en="Placeholder text — no legal advice. Adjust to your country's requirements (e.g. Impressumspflicht §5 TMG / ECG)." data-de="Platzhalter — keine Rechtsberatung. An die Anforderungen deines Landes anpassen (z. B. §5 TMG / §5 ECG).">Platzhalter — keine Rechtsberatung. An die Anforderungen deines Landes anpassen (z. B. §5 TMG / §5 ECG).</p>
+  </div>
+</div>
 
 <script>
 /* enable JS-gated reveals (fail-safe: without this class everything stays visible) */
@@ -776,7 +825,8 @@ const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 if (canvas) {
  try {
   const renderer = new THREE.WebGLRenderer({ canvas, antialias:true, powerPreference:'high-performance' });
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.1));
+  const isMobile = Math.min(window.innerWidth, window.innerHeight) < 768;
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, isMobile ? 1 : 1.1));
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
   renderer.toneMappingExposure = 0.95;
 
@@ -817,7 +867,7 @@ if (canvas) {
   const g3 = new THREE.IcosahedronGeometry(1,0);                          // chunk
   const cGeos = [g1,g2,g3];
   const crystals = [];
-  for (let i=0;i<30;i++){
+  for (let i=0;i<(isMobile?16:30);i++){
     const m = new THREE.Mesh(cGeos[i%3], crystalMats[i%3]);
     const s = 0.45 + Math.random()*1.9;
     const fp = new THREE.Vector3((Math.random()-0.5)*36, (Math.random()-0.5)*24, 3 - i*2.2 - Math.random()*3);
@@ -828,7 +878,7 @@ if (canvas) {
   }
 
   // ── SNOW / SPARKLE PARTICLES ──
-  const PN = 1400, spanX = 60, spanY = 40, spanZ = 90;
+  const PN = isMobile ? 450 : 1400, spanX = 60, spanY = 40, spanZ = 90;
   const pPos = new Float32Array(PN*3);
   for (let i=0;i<PN;i++){
     pPos[i*3]   = (Math.random()-0.5)*spanX;
